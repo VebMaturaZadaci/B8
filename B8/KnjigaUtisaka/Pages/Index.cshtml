@@ -1,0 +1,58 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<form method="post">
+
+    <div class="text-center">
+
+        <div class="container" style="display:flex;justify-content:center;margin-top: 10px;">
+            <label>IME:</label>
+            <input type="text" id="Ime" name="Ime" asp-for="Ime" />
+        </div>
+
+        <div class="container" style="display:flex;justify-content:center;gap: 5px;margin-top: 10px;">
+            <label>EMAIL:</label>
+            <input type="email" id="Email" name="Email" asp-for="Email" />
+        </div>
+
+        <div class="container" style="display:flex;justify-content:center;gap: 5px;margin-top: 10px;">
+            <label>KOMENTAR:</label>
+            <input type="text" id="Komentar" name="Komentar" asp-for="Komentar" />
+        </div>
+
+        <button type="submit" id="Dodaj" asp-page-handler="Dodaj">Dodaj komentar</button>
+
+
+        <table>
+            <thead>
+            <th>Id</th>
+            <th>Ime</th>
+            <th>Email</th>
+            <th>Komentar</th>
+            <th>Date</th>
+            </thead>
+
+            @foreach (var item in Model._servis.GetUtisci())
+            {
+                <tr>
+
+                    <td>@item.Id</td>
+                    <td>@item.Ime</td>
+                    <td>@item.Email</td>
+                    <td>@item.Komentar</td>
+                    <td>@item.Date</td>
+                </tr>
+
+            }
+
+        </table>
+
+
+</form>
+
+
+
+</div>
